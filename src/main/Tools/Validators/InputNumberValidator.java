@@ -7,7 +7,7 @@ public class InputNumberValidator {
      * @param digits possible numbers as strings
      * @param input  input numbers as string to be checked
      */
-    public static void validate(char[] digits, String input) {
+    public static boolean validate(char[] digits, String input) {
         boolean contains = false;
         for (char c : input.toCharArray()) {
             if (contains) {
@@ -24,6 +24,7 @@ public class InputNumberValidator {
                 break;
             }
         }
+        return contains;
         //System.out.println(contains);
     }
 }
