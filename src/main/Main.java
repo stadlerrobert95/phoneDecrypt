@@ -1,12 +1,14 @@
-import Tools.Generators.GenerateAllCombinations;
-import Tools.Generators.PhoneDialGenetator;
-import Tools.Validators.InputNumberValidator;
-import Tools.Validators.LenghtValidator;
-import Tools.Validators.NumberValidator;
+package main;
+
+import main.Tools.Generators.GenerateAllCombinations;
+import main.Tools.Generators.PhoneDialGenetator;
+import main.Tools.Validators.InputNumberValidator;
+import main.Tools.Validators.LenghtValidator;
+import main.Tools.Validators.NumberValidator;
 
 import java.util.*;
 
-import static Tools.Constants.*;
+import static main.Tools.Constants.*;
 
 public class Main {
     public static void main(String[] args) {

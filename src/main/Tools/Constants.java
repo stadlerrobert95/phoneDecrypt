@@ -1,4 +1,4 @@
-package Tools;
+package main.Tools;
 
 public final class Constants {
     private Constants(){}

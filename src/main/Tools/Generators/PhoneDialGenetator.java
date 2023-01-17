@@ -1,4 +1,4 @@
-package Tools.Generators;
+package main.Tools.Generators;
 
 import java.util.ArrayList;
 import java.util.Map;

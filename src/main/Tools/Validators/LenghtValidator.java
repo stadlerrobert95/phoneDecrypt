@@ -1,4 +1,4 @@
-package Tools.Validators;
+package main.Tools.Validators;
 
 public class LenghtValidator {
     /**
