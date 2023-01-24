@@ -1,14 +1,14 @@
 package main;
 
-import main.Tools.Exceptions.InvalidInputException;
 import main.Tools.Generators.GenerateAllCombinations;
+import main.Tools.Generators.MappingInputToAlphabetical;
 import main.Tools.Generators.PhoneDialMapper;
 import main.Tools.Validators.InputValidator;
 
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws InvalidInputException {
+    public static void main(String[] args) {
 
         Map<Character, List<Character>> phoneDial;
 
@@ -18,34 +18,34 @@ public class Main {
 
         //Validate input with regex
         InputValidator validate = new InputValidator();
-        if (!validate.validate(input))
-            throw new InvalidInputException("Exception: Invalid input: \"" + input + "\" should be a zero to four length, and digits between 2-9");
+        if (!validate.validate(input)){
+            System.out.println(" Invalid input: \"" + input + "\" should be a zero to four length, and digits between 2-9");
+            System.out.println("The application will shut down.");
+            return;
+        }
 
-        //TODO void -> Map<>
         //Generating the basic Phone dial to a Map
         phoneDial = PhoneDialMapper.generate();
 
         //Fill list with possible character variants for each number in the input
-        List<List<Character>> inputToCharList = new ArrayList<>();
+        //Ex.: 23 to [[a], [b], [c]], [[d], [e], [f]]
+        List<List<Character>> inputToCharList = MappingInputToAlphabetical.convertInputNumberToAlphabetical(phoneDial, input);
 
-        for (char c: input.toCharArray()
-             ) {
-            inputToCharList.add(phoneDial.get(c));
-        }
+        GenerateAllCombinations allCombinations = new GenerateAllCombinations();
+        List<String> result = allCombinations.generate(inputToCharList,  0, "");
 
-        //Initialise result list for combinations
-        List<String> result = new ArrayList<>();
+        allCombinations.print(result);
 
-        GenerateAllCombinations.generate(inputToCharList, result, 0, "");
+        //Sort via Collections.sort()
+        System.out.println("Collections.sort() Sort:");
+        List<String> list = allCombinations.sortDefault(result);
+        allCombinations.print(list);
 
-        //List<String> result2 = GenerateAllCombinations.generateList(phoneDial,input);
-
-        //Collections.sort(result2);
-        //System.out.println(result2);
-
-        //todo Implement sorting algorithm
-        System.out.println(result);
-        Collections.sort(result);
+        allCombinations.print(result);
+        //Sort via Custom Sort algorithm
+        System.out.println("Custom Sort:");
+        result = allCombinations.sortCustom(result);
+        allCombinations.print(result);
 
     }
 
