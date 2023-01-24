@@ -19,7 +19,7 @@ public class Main {
         //Validate input with regex
         InputValidator validate = new InputValidator();
         if (!validate.validate(input)){
-            System.out.println(" Invalid input: \"" + input + "\" should be a zero to four length, and digits between 2-9");
+            System.out.println("Invalid input: \"" + input + "\" should be a zero to four length, and digits between 2-9");
             System.out.println("The application will shut down.");
             return;
         }

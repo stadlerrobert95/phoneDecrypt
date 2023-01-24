@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PhoneDialMapperTest {
+class PhoneDialMapperTest extends PhoneDialMapper {
 
     Map<Character, List<Character>> phoneDial;
     List<Character> expected;
