@@ -1,39 +1,32 @@
 package main;
 
+import main.Tools.Exceptions.InvalidInputException;
 import main.Tools.Generators.GenerateAllCombinations;
-import main.Tools.Generators.PhoneDialGenetator;
-import main.Tools.Generators.SortByStringValue;
-import main.Tools.Validators.InputNumberValidator;
-import main.Tools.Validators.LenghtValidator;
-import main.Tools.Validators.NumberValidator;
+import main.Tools.Generators.PhoneDialMapper;
+import main.Tools.Validators.InputValidator;
 
 import java.util.*;
 
-import static main.Tools.Constants.*;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidInputException {
 
-        Map<Character, ArrayList<Character>> phoneDial = new HashMap<>();
+        Map<Character, List<Character>> phoneDial;
 
         //Get the input parameter from console
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
 
-        //Check the inputs length if it's not the required, the program stops
-        LenghtValidator.validate(MIN_LENGHT, MAX_LENGHT, input);
+        //Validate input with regex
+        InputValidator validate = new InputValidator();
+        if (!validate.validate(input))
+            throw new InvalidInputException("Exception: Invalid input: \"" + input + "\" should be a zero to four length, and digits between 2-9");
 
-        //Check the input, if it's not a number, the program stops
-        NumberValidator.validate(input);
-
-        //Check the input, looking for invalid numbers (0, 1)
-        InputNumberValidator.validate(DIGITS, input);
-
+        //TODO void -> Map<>
         //Generating the basic Phone dial to a Map
-        PhoneDialGenetator.generate(DIGITS, phoneDial);
+        phoneDial = PhoneDialMapper.generate();
 
         //Fill list with possible character variants for each number in the input
-        List<ArrayList<Character>> inputToCharList = new ArrayList<>();
+        List<List<Character>> inputToCharList = new ArrayList<>();
 
         for (char c: input.toCharArray()
              ) {
@@ -45,7 +38,15 @@ public class Main {
 
         GenerateAllCombinations.generate(inputToCharList, result, 0, "");
 
-        System.out.println(SortByStringValue.sort(result));
+        //List<String> result2 = GenerateAllCombinations.generateList(phoneDial,input);
+
+        //Collections.sort(result2);
+        //System.out.println(result2);
+
+        //todo Implement sorting algorithm
+        System.out.println(result);
+        Collections.sort(result);
+
     }
 
 }
