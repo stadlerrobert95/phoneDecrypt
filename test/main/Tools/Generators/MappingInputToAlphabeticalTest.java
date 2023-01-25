@@ -1,14 +1,16 @@
-package Tools.Generators;
+package main.Tools.Generators;
 
-import main.Tools.Generators.MappingInputToAlphabetical;
-import main.Tools.Generators.PhoneDialMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     Map<Character, List<Character>> listMap;

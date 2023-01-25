@@ -1,6 +1,5 @@
-package Tools.Generators;
+package main.Tools.Generators;
 
-import main.Tools.Generators.PhoneDialMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PhoneDialMapperTest extends PhoneDialMapper {
 
