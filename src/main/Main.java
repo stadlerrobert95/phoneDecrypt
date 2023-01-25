@@ -13,6 +13,7 @@ public class Main {
         Map<Character, List<Character>> phoneDial;
 
         //Get the input parameter from console
+        System.out.println("Enter maximum 4 length digit:");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
 
@@ -41,7 +42,6 @@ public class Main {
         List<String> list = allCombinations.sortDefault(result);
         allCombinations.print(list);
 
-        allCombinations.print(result);
         //Sort via Custom Sort algorithm
         System.out.println("Custom Sort:");
         result = allCombinations.sortCustom(result);
