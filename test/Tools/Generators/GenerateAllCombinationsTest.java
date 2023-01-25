@@ -1,4 +1,4 @@
-package test.Tools.Generators;
+package Tools.Generators;
 
 import main.Tools.Generators.GenerateAllCombinations;
 import org.junit.jupiter.api.AfterEach;
@@ -18,10 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class GenerateAllCombinationsTest extends GenerateAllCombinations {
     private List<List<Character>> list;
     private GenerateAllCombinations combinator;
-    List<String> result;
-    List<Character> characterList;
-    Character[] chars;
-    PrintStream printStream = System.out;
+    private List<String> result;
+    private List<Character> characterList;
+    private Character[] chars;
+    private final PrintStream printStream = System.out;
 
     @BeforeEach
     void setUp() {
@@ -91,7 +91,7 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         List<String> actual = new ArrayList<>(Arrays.stream(elements).toList());
         List<String> expected = new ArrayList<>();
         Collections.addAll(expected, "aa", "ac", "ad", "bb");
-        Collections.sort(actual);
+        actual = new GenerateAllCombinations().sortDefault(actual);
         System.out.println("Expected: " + expected);
         System.out.println("Actual:   " + actual);
         assertEquals(expected, actual);

@@ -1,4 +1,4 @@
-package test.Tools.Generators;
+package Tools.Generators;
 
 import main.Tools.Generators.MappingInputToAlphabetical;
 import main.Tools.Generators.PhoneDialMapper;
@@ -41,7 +41,7 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     }
 
     @Test
-    void convertInputNumber_OneLenght_ToAlphabetical() {
+    void convertInputNumber_OneLength_ToAlphabetical() {
         input = "2";
         result = convertInputNumberToAlphabetical(listMap, input);
 
@@ -56,7 +56,7 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     }
 
     @Test
-    void convertInputNumber_TwoLenght_ToAlphabetical() {
+    void convertInputNumber_TwoLength_ToAlphabetical() {
         input = "23";
         result = convertInputNumberToAlphabetical(listMap, input);
 
@@ -75,7 +75,7 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     }
 
     @Test
-    void convertInputNumber_ThreeLenght_ToAlphabetical(){
+    void convertInputNumber_ThreeLength_ToAlphabetical(){
         input = "234";
         result = convertInputNumberToAlphabetical(listMap, input);
 
@@ -97,7 +97,7 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     }
 
     @Test
-    void convertInputNumber_FourLenght_ToAlphabetical(){
+    void convertInputNumber_FourLength_ToAlphabetical(){
         input = "2345";
         result = convertInputNumberToAlphabetical(listMap, input);
         Collections.addAll(exceptedFillerList, 'a', 'b', 'c');
@@ -122,7 +122,7 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
     }
 
     @Test
-    void convertInputNumber_FiveLenght_ToAlphabetical(){
+    void convertInputNumber_FiveLength_ToAlphabetical(){
         input = "23456";
         result = convertInputNumberToAlphabetical(listMap, input);
 

@@ -1,4 +1,4 @@
-package test.Tools.Generators;
+package Tools.Generators;
 
 import main.Tools.Generators.PhoneDialMapper;
 import org.junit.jupiter.api.AfterEach;
