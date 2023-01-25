@@ -34,7 +34,7 @@ public class GenerateAllCombinations {
     }
 
     public List<String> sortCustom(List<String> list) {
-        String [] array = list.toArray(new String[0]);
+        String[] array = list.toArray(new String[0]);
         int size = array.length;
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {

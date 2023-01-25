@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -72,9 +74,26 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
 
     @Test
     void testSortCustom() {
+        String[] elements = {"aa", "bb", "ad", "ac"};
+        List<String> part = new ArrayList<>(Arrays.asList(elements));
+        List<String> actual = new GenerateAllCombinations().sortCustom(part);
+        List<String> expected = new ArrayList<>();
+        Collections.addAll(expected, "aa", "ac", "ad", "bb");
+
+        System.out.println("Expected: " + expected);
+        System.out.println("Actual:   " + actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     void testSortDefault() {
+        String[] elements = {"aa", "bb", "ad", "ac"};
+        List<String> actual = new ArrayList<>(Arrays.stream(elements).toList());
+        List<String> expected = new ArrayList<>();
+        Collections.addAll(expected, "aa", "ac", "ad", "bb");
+        Collections.sort(actual);
+        System.out.println("Expected: " + expected);
+        System.out.println("Actual:   " + actual);
+        assertEquals(expected, actual);
     }
 }
