@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -30,67 +31,49 @@ class PhoneDialMapperTest extends PhoneDialMapper {
     @Test
     void generateTwo() {
         List<Character> actual = phoneDial.get('2');
-        expected.add('a');
-        expected.add('c');
-        expected.add('b');
+        Collections.addAll(expected, 'a', 'b', 'c');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateThree() {
         List<Character> actual = phoneDial.get('3');
-        expected.add('d');
-        expected.add('e');
-        expected.add('f');
+        Collections.addAll(expected, 'd', 'e', 'f');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateFour() {
         List<Character> actual = phoneDial.get('4');
-        expected.add('g');
-        expected.add('h');
-        expected.add('i');
+        Collections.addAll(expected, 'g', 'h', 'i');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateFive() {
         List<Character> actual = phoneDial.get('5');
-        expected.add('j');
-        expected.add('k');
-        expected.add('l');
+        Collections.addAll(expected, 'j', 'k', 'l');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateSix() {
         List<Character> actual = phoneDial.get('6');
-        expected.add('m');
-        expected.add('n');
-        expected.add('o');
+        Collections.addAll(expected, 'm', 'n', 'o');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateSeven() {
         List<Character> actual = phoneDial.get('7');
-        expected.add('p');
-        expected.add('q');
-        expected.add('r');
-        expected.add('s');
+        Collections.addAll(expected, 'p', 'q', 'r', 's');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateEight() {
         List<Character> actual = phoneDial.get('8');
-        expected.add('t');
-        expected.add('u');
-        expected.add('v');
+        Collections.addAll(expected, 't', 'u', 'v');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
     @Test
     void generateNine() {
         List<Character> actual = phoneDial.get('9');
-        expected.add('w');
-        expected.add('x');
-        expected.add('y');
-        expected.add('z');
+        Collections.addAll(expected, 'w', 'x', 'y', 'z');
         assertTrue(expected.containsAll(actual) && actual.containsAll(expected));
     }
 

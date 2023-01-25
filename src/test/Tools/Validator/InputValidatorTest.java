@@ -31,8 +31,8 @@ class InputValidatorTest extends GenerateAllCombinations {
     }
 
     @Test
-    void validatorNumber(){
-        String input = "234";
+    void validatorNumberMaxLength(){
+        String input = "2344";
         Matcher matcher = pattern.matcher(input);
         assertTrue(matcher.matches());
     }
@@ -59,9 +59,29 @@ class InputValidatorTest extends GenerateAllCombinations {
     }
 
     @Test
-    void validatorNumber2(){
+    void validatorAboveMaxLenght(){
+        String input = "23456";
+        Matcher matcher = pattern.matcher(input);
+        assertFalse(matcher.matches());
+    }
+
+    @Test
+    void validatorNumberSingle(){
         String input = "2";
         Matcher matcher = pattern.matcher(input);
         assertTrue(matcher.matches());
+    }
+
+    @Test
+    void validatorNull() throws NullPointerException {
+        String input = null;
+        System.out.println("Excepted: " + NullPointerException.class);
+        try {
+            Matcher matcher = pattern.matcher(input);
+        }
+        catch (NullPointerException e){
+            System.out.println(e.getClass());
+            assertThrows(e.getClass(), () -> pattern.matcher(input));
+        }
     }
 }
