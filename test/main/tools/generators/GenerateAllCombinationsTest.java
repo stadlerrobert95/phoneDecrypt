@@ -1,4 +1,4 @@
-package main.Tools.Generators;
+package main.tools.generators;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GenerateAllCombinationsTest extends GenerateAllCombinations {
     private List<List<Character>> list;
-    private GenerateAllCombinations combinator;
     private List<String> result;
     private List<Character> characterList;
     private Character[] chars;
@@ -25,13 +24,12 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
     @BeforeEach
     void setUp() {
         list = new ArrayList<>();
-        combinator = new GenerateAllCombinations();
-
     }
 
     @AfterEach
     void tearDown() {
         System.setOut(printStream);
+        GenerateAllCombinations.result.clear();
     }
 
     @Test
@@ -41,6 +39,8 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         list.add(characterList);
         result = GenerateAllCombinations.generate(list,0,"");
         List<String> expected = new ArrayList<>(List.of("a", "b", "c"));
+        System.out.println("Expected: " + expected);
+        System.out.println("Actual:   " + result);
         assertTrue(result.containsAll(expected));
     }
 
@@ -51,9 +51,10 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         characterList = new ArrayList<>(List.of(chars));
         list.add(characterList);
         list.add(characterList);
-
         result = GenerateAllCombinations.generate(list,0,"");
         List<String> expected = new ArrayList<>(List.of("aa", "ab", "ac", "ba", "bb", "bc", "ca", "cb", "cc"));
+        System.out.println("Expected: " + expected);
+        System.out.println("Actual:   " + result);
         assertTrue(result.containsAll(expected));
     }
 
