@@ -9,16 +9,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static main.tools.generators.PhoneDialMapper.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class PhoneDialMapperTest extends PhoneDialMapper {
+class PhoneDialMapperTest{
 
-    Map<Character, List<Character>> phoneDial;
-    List<Character> expected;
+    private Map<Character, List<Character>> phoneDial;
+    private List<Character> expected;
 
     @BeforeEach
     void init() {
-        phoneDial = PhoneDialMapper.generate();
+        phoneDial = generate();
         expected = new ArrayList<>();
     }
 
