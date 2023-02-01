@@ -1,6 +1,6 @@
-package main.Tools.Validators;
+package main.tools.validators;
 
-import main.Tools.Constants;
+import main.tools.Constants;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

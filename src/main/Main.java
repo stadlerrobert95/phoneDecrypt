@@ -1,9 +1,9 @@
 package main;
 
-import main.Tools.Generators.GenerateAllCombinations;
-import main.Tools.Generators.MappingInputToAlphabetical;
-import main.Tools.Generators.PhoneDialMapper;
-import main.Tools.Validators.InputValidator;
+import main.tools.generators.GenerateAllCombinations;
+import main.tools.generators.MappingInputToAlphabetical;
+import main.tools.generators.PhoneDialMapper;
+import main.tools.validators.InputValidator;
 
 import java.util.*;
 
@@ -32,20 +32,27 @@ public class Main {
         //Ex.: 23 to [[a], [b], [c]], [[d], [e], [f]]
         List<List<Character>> inputToCharList = MappingInputToAlphabetical.convertInputNumberToAlphabetical(phoneDial, input);
 
-        GenerateAllCombinations allCombinations = new GenerateAllCombinations();
-        List<String> result = allCombinations.generate(inputToCharList,  0, "");
+        //GenerateAllCombinations allCombinations = new GenerateAllCombinations();
+        List<String> result = GenerateAllCombinations.generate(inputToCharList,  0, "");
+        GenerateAllCombinations.print();
 
-        allCombinations.print(result);
-
-        //Sort via Collections.sort()
-        System.out.println("Collections.sort() Sort:");
-        List<String> list = allCombinations.sortDefault(result);
-        allCombinations.print(list);
+        //Add random value for testing custom sorting algorithm
+        result.add("aj");
 
         //Sort via Custom Sort algorithm
         System.out.println("Custom Sort:");
-        result = allCombinations.sortCustom(result);
-        allCombinations.print(result);
+        GenerateAllCombinations.sortCustom();
+        GenerateAllCombinations.print();
+
+        //Add random value for testing default sorting algorithm
+        result.add("ah");
+
+        //Sort via Collections.sort()
+        System.out.println("Collections.sort() Sort:");
+        GenerateAllCombinations.sortDefault();
+        GenerateAllCombinations.print();
+
+
 
     }
 

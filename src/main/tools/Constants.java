@@ -1,4 +1,4 @@
-package main.Tools;
+package main.tools;
 
 public final class Constants {
     private Constants(){}

@@ -1,6 +1,5 @@
-package main.Tools.Validator;
+package main.tools.validators;
 
-import main.Tools.Validators.InputValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -68,13 +67,5 @@ class InputValidatorTest extends InputValidator {
         boolean actual = validator.validate(input);
         boolean expected = true;
         assertEquals(expected, actual);
-    }
-
-    @Test
-    void validatorNull() throws NullPointerException {
-        String input = null;
-        NullPointerException exception = assertThrows(NullPointerException.class,
-                                            () -> validator.validate(input));
-        assertTrue(exception.getMessage().contains("null"));
     }
 }

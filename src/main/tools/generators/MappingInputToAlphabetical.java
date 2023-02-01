@@ -1,4 +1,4 @@
-package main.Tools.Generators;
+package main.tools.generators;
 
 import java.util.ArrayList;
 import java.util.List;

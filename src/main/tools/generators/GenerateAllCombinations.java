@@ -1,9 +1,9 @@
-package main.Tools.Generators;
+package main.tools.generators;
 
 import java.util.*;
 
 public class GenerateAllCombinations {
-    List<String> result = new ArrayList<>();
+    static List<String> result = new ArrayList<>();
     /**
      * Recursive generator of possible combinations
      *
@@ -11,7 +11,7 @@ public class GenerateAllCombinations {
      * @param depth      in which list is the function is
      * @param current    the base string for combination
      */
-    public List<String> generate(List<List<Character>> inputLists, int depth, String current) {
+    public static List<String> generate(List<List<Character>> inputLists, int depth, String current) {
         if (depth == inputLists.size()) {
             result.add(current);
             return result;
@@ -22,9 +22,9 @@ public class GenerateAllCombinations {
         return result;
     }
 
-    public void print(List<String> list ){
-        String lastItem = list.get(list.size() - 1);
-        for (String item: list){
+    public static void print(){
+        String lastItem = result.get(result.size() - 1);
+        for (String item: result){
             if (item.equals(lastItem)){
                 System.out.print("[" + item + "]\n");
                 return;
@@ -33,24 +33,21 @@ public class GenerateAllCombinations {
         }
     }
 
-    public List<String> sortCustom(List<String> list) {
-        String[] array = list.toArray(new String[0]);
-        int size = array.length;
+    public static void sortCustom() {
+        int size = result.size();
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (array[i].compareToIgnoreCase(array[j]) > 0) {
-                    String temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
+                if (result.get(i).compareToIgnoreCase(result.get(j)) > 0) {
+                    String temp = result.get(i);
+                    result.set(i, result.get(j));
+                    result.set(j, temp);
                 }
             }
         }
-        return Arrays.stream(array).toList();
-    }
 
-    public List<String> sortDefault(List<String> list){
-        List<String> stringList = new ArrayList<>(list);
-        Collections.sort(stringList);
-        return stringList;
+    }
+    public static void sortDefault(){
+
+        Collections.sort(result);
     }
 }

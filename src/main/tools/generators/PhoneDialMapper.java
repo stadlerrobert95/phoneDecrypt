@@ -1,9 +1,8 @@
-package main.Tools.Generators;
+package main.tools.generators;
 
 import java.util.*;
 
 public class PhoneDialMapper {
-    //TODO same as '2'
 
     public static Map<Character, List<Character>> generate() {
 
