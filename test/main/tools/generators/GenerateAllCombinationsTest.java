@@ -11,10 +11,11 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static main.tools.generators.GenerateAllCombinations.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class GenerateAllCombinationsTest extends GenerateAllCombinations {
+class GenerateAllCombinationsTest{
     private List<List<Character>> list;
     private List<String> result;
     private List<Character> characterList;
@@ -37,7 +38,7 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         chars = new Character[]{'a', 'b', 'c'};
         characterList = new ArrayList<>(List.of(chars));
         list.add(characterList);
-        result = GenerateAllCombinations.generate(list,0,"");
+        result = generate(list,0,"");
         List<String> expected = new ArrayList<>(List.of("a", "b", "c"));
         System.out.println("Expected: " + expected);
         System.out.println("Actual:   " + result);
@@ -51,7 +52,7 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         characterList = new ArrayList<>(List.of(chars));
         list.add(characterList);
         list.add(characterList);
-        result = GenerateAllCombinations.generate(list,0,"");
+        result = generate(list,0,"");
         List<String> expected = new ArrayList<>(List.of("aa", "ab", "ac", "ba", "bb", "bc", "ca", "cb", "cc"));
         System.out.println("Expected: " + expected);
         System.out.println("Actual:   " + result);
@@ -66,8 +67,8 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         chars = new Character[]{'a', 'b', 'c'};
         characterList = new ArrayList<>(List.of(chars));
         list.add(characterList);
-        result = GenerateAllCombinations.generate(list, 0, "");
-        GenerateAllCombinations.print();
+        result = generate(list, 0, "");
+        print();
         assertEquals("[a], [b], [c]" ,outputStream.toString().trim());
     }
 
@@ -79,7 +80,7 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         List<String> expected = new ArrayList<>();
         Collections.addAll(expected, "aa", "ac", "ad", "bb");
         GenerateAllCombinations.result = actual;
-        GenerateAllCombinations.sortCustom();
+        sortCustom();
         System.out.println("Expected: " + expected);
         System.out.println("Actual:   " + actual);
         assertEquals(expected, actual);
@@ -92,7 +93,7 @@ class GenerateAllCombinationsTest extends GenerateAllCombinations {
         List<String> expected = new ArrayList<>();
         Collections.addAll(expected, "aa", "ac", "ad", "bb");
         GenerateAllCombinations.result = actual;
-        GenerateAllCombinations.sortDefault();
+        sortDefault();
         System.out.println("Expected: " + expected);
         System.out.println("Actual:   " + actual);
         assertEquals(expected, actual);
