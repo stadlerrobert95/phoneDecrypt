@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InputValidatorTest extends InputValidator {
-    InputValidator validator;
+    private InputValidator validator;
     @BeforeEach
     void setUp() {
         validator = new InputValidator();
