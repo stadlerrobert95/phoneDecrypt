@@ -9,15 +9,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static main.tools.generators.MappingInputToAlphabetical.convertInputNumberToAlphabetical;
+import static org.junit.jupiter.api.Assertions.*;
 
-class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
-    Map<Character, List<Character>> listMap;
-    List<List<Character>> result;
-    List<List<Character>> excepted;
-    List<Character> exceptedFillerList;
-    String input;
+class MappingInputToAlphabeticalTest {
+    private Map<Character, List<Character>> listMap;
+    private List<List<Character>> result;
+    private List<List<Character>> excepted;
+    private List<Character> exceptedFillerList;
+    private String input;
 
     @BeforeEach
     void setUp() {
@@ -128,10 +128,9 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
         input = "23456";
         result = convertInputNumberToAlphabetical(listMap, input);
 
-        System.out.println("Excepted: " + excepted);
-        System.out.println("Result:   " + result);
-
-        assertNull(result);
+        System.out.println("Excepted: " + "Result size is 5 lenght");
+        System.out.println("Result:   " + "Result size: " + result.size());
+        assertEquals(5, result.size());
     }
 
     @Test
@@ -139,10 +138,10 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
         input = "2316";
         result = convertInputNumberToAlphabetical(listMap, input);
 
-        System.out.println("Excepted: " + excepted);
+        System.out.println("Excepted: " + (result.contains(null)?"Result set contains null":""));
         System.out.println("Result:   " + result);
 
-        assertNull(result);
+        assertTrue(result.contains(null));
     }
 
     @Test
@@ -150,9 +149,9 @@ class MappingInputToAlphabeticalTest extends MappingInputToAlphabetical {
         input = "23l6";
         result = convertInputNumberToAlphabetical(listMap, input);
 
-        System.out.println("Excepted: " + excepted);
+        System.out.println("Excepted: " + (result.contains(null)?"Result set contains null":""));
         System.out.println("Result:   " + result);
 
-        assertNull(result);
+        assertTrue(result.contains(null));
     }
 }
